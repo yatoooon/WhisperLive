@@ -5,7 +5,7 @@ client = TranscriptionClient(
   9090,
   lang="ja",
   translate=False,
-  model="turbo",
+  model="large-v3-turbo",
   use_vad=True,
   save_output_recording=True,
   output_recording_filename="./output_recording.wav"

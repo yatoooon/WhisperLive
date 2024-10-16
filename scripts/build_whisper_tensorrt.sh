@@ -38,7 +38,7 @@ download_and_build_model() {
         "large-v3" | "large")
             model_url="https://openaipublic.azureedge.net/main/whisper/models/e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb/large-v3.pt"
             ;;
-        "turbo")
+        "large-v3-turbo")
             model_url="https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt"
             ;;
         *)
