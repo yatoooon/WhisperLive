@@ -127,15 +127,16 @@ class VoiceActivityDetector:
 
     def __call__(self, audio_frame):
         """
-        确定给定的音频帧是否包含语音，方法是将检测到的语音概率与阈值进行比较。
+        Determines if the given audio frame contains speech by comparing the detected speech probability against
+        the threshold.
 
         Args:
-            audio_frame (np.ndarray): 要分析语音活动的音频帧。预期是音频样本的NumPy数组。
+            audio_frame (np.ndarray): The audio frame to be analyzed for voice activity. It is expected to be a
+                                      NumPy array of audio samples.
 
         Returns:
-            bool: 如果语音概率超过阈值，表示存在语音活动，则返回True；否则返回False。
+            bool: True if the speech probability exceeds the threshold, indicating the presence of voice activity;
+                  False otherwise.
         """
-        # 创建一个可写的数组副本
-        writable_audio_frame = np.array(audio_frame, copy=True)
-        speech_prob = self.model(torch.from_numpy(writable_audio_frame), self.frame_rate).item()
+        speech_prob = self.model(torch.from_numpy(audio_frame), self.frame_rate).item()
         return speech_prob > self.threshold

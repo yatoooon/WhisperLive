@@ -1,9 +1,9 @@
 from whisper_live.client import TranscriptionClient
 
 client = TranscriptionClient(
-  "154.206.64.155",  # 使用你之前提供的 IP 地址
+  "154.206.64.157",  # 使用你之前提供的 IP 地址
   9090,
-  lang="zh",
+  lang="ja",
   translate=False,
   model="large-v3-turbo",
   use_vad=True,
