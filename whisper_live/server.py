@@ -146,8 +146,8 @@ class BackendType(Enum):
 class TranscriptionServer:
     RATE = 16000
 
-    def __init__(self):
-        self.client_manager = ClientManager()
+    def __init__(self, max_clients=4, max_connection_time=600):
+        self.client_manager = ClientManager(max_clients=max_clients, max_connection_time=max_connection_time)
         self.no_voice_activity_chunks = 0
         self.use_vad = True
         self.single_model = True

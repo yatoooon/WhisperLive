@@ -28,6 +28,14 @@ if __name__ == "__main__":
     parser.add_argument('--no_single_model', '-nsm',
                         action='store_true',
                         help='Set this if every connection should instantiate its own model. Only relevant for custom model, passed using -trt or -fw.')
+    parser.add_argument('--max_clients', '-mc',
+                        type=int,
+                        default=4,
+                        help="Maximum number of simultaneous client connections allowed.")
+    parser.add_argument('--max_connection_time', '-mct',
+                        type=int,
+                        default=600,
+                        help="Maximum duration (in seconds) a client can stay connected.")
     args = parser.parse_args()
 
     if args.backend == "tensorrt":
@@ -38,7 +46,7 @@ if __name__ == "__main__":
         os.environ["OMP_NUM_THREADS"] = str(args.omp_num_threads)
 
     from whisper_live.server import TranscriptionServer
-    server = TranscriptionServer()
+    server = TranscriptionServer(max_clients=args.max_clients, max_connection_time=args.max_connection_time)
     server.run(
         "0.0.0.0",
         port=args.port,
