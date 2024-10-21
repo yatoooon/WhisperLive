@@ -580,7 +580,7 @@ class ServeClientTensorRT(ServeClientBase):
     SINGLE_MODEL = None
     SINGLE_MODEL_LOCK = threading.Lock()
 
-    def __init__(self, websocket, task="transcribe", multilingual=False, language=None, client_uid=None, model=None, single_model=False):
+    def __init__(self, websocket, task="transcribe", multilingual=False, language=None, client_uid=None, model=None, single_model=True):
         """
         Initialize a ServeClient instance.
         The Whisper model is initialized based on the client's language and device availability.

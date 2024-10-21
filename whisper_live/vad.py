@@ -138,5 +138,7 @@ class VoiceActivityDetector:
             bool: True if the speech probability exceeds the threshold, indicating the presence of voice activity;
                   False otherwise.
         """
-        speech_prob = self.model(torch.from_numpy(audio_frame), self.frame_rate).item()
+        # 创建一个可写的数组副本
+        writable_audio_frame = np.array(audio_frame, copy=True)
+        speech_prob = self.model(torch.from_numpy(writable_audio_frame), self.frame_rate).item()
         return speech_prob > self.threshold
