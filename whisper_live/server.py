@@ -150,7 +150,7 @@ class TranscriptionServer:
         self.client_manager = None
         self.no_voice_activity_chunks = 0
         self.use_vad = True
-        self.single_model = False
+        self.single_model = True
 
     def initialize_client(
         self, websocket, options, faster_whisper_custom_model_path,
@@ -323,7 +323,7 @@ class TranscriptionServer:
             faster_whisper_custom_model_path=None,
             whisper_tensorrt_path=None,
             trt_multilingual=False,
-            single_model=False):
+            single_model=True):
         """
         Run the transcription server.
 
