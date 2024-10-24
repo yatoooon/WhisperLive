@@ -298,7 +298,7 @@ class WhisperTRTLLM(object):
     def transcribe(
             self,
             mel,
-            text_prefix="<|startofprev|> Whisper, when transcribing speech to text, please prioritize accurate punctuation. Ensure that each sentence is contained within a single subtitle segment for clarity. If a sentence is too long, break it at natural pauses in the speaker’s delivery to keep subtitles concise and easy for viewers to follow. <|startoftranscript|><|en|><|transcribe|><|notimestamps|>",
+            text_prefix="<|startoftranscript|><|en|><|transcribe|><|notimestamps|>",
             dtype='float16',
             batch_size=1,
             num_beams=1,
